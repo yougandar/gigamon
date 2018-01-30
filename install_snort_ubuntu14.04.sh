@@ -14,8 +14,7 @@ wget http://www.tcpdump.org/release/libpcap-1.7.4.tar.gz
 wget http://ftp.netfilter.org/pub/libmnl/libmnl-1.0.3.tar.bz2
 
 # Install needfull packages
-sudo apt-get install build-essential autoconf automake libtool autotools-dev dpkg-dev fakeroot checkinstall \
-     flex bison pkg-config libmnl libpcre3 libpcre3-dev zlib1g zlib1g-dev
+sudo apt-get install flex bison build-essential checkinstall libpcap-dev libnet1-dev libpcre3-dev libmysqlclient15-dev libnetfilter-queue-dev iptables-dev
 
 # Remove old libpcap
 sudo apt-get -f remove libpcap-dev libpcap0.8 libpcap0.8-dev libpcap0.8-dev:amd64  libpcap0.8:amd64
