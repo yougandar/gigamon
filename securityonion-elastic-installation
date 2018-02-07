@@ -1,3 +1,5 @@
+#Install Security Onion Package
+
 #Configure MySQL not to prompt for root password:
 echo "debconf debconf/frontend select noninteractive" | sudo debconf-set-selections
 #Clean apt list repository:
@@ -20,9 +22,10 @@ sudo firewall-cmd --list-ports
 
 sleep 30
 #Install elastic
-sudo apt install securityonion-elastic
 sudo sosetup -f /usr/share/securityonion/sosetup.conf  -y
+sudo apt install securityonion-elastic
 sudo apt-get update
 sudo so-elastic-download
+sleep 20
 sudo so-elastic-configure
 
