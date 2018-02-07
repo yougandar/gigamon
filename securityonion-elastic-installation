@@ -1,0 +1,28 @@
+#Configure MySQL not to prompt for root password:
+echo "debconf debconf/frontend select noninteractive" | sudo debconf-set-selections
+#Clean apt list repository:
+sudo rm -rf /var/lib/apt/lists/*
+sudo apt-get update
+#Add the Security Onion stable repository:
+sudo apt-get -y install software-properties-common
+sudo add-apt-repository -y ppa:securityonion/stable
+sudo apt-get update
+#Install the securityonion-all metapackage:
+sudo apt-get -y install securityonion-all syslog-ng-core
+
+sleep 20
+sudo apt-get update
+#Install firewalld
+sudo apt-get install -y firewalld
+sudo firewall-cmd --zone=public --add-port=443/tcp --permanent
+sudo firewall-cmd --reload
+sudo firewall-cmd --list-ports
+
+sleep 30
+#Install elastic
+sudo apt install securityonion-elastic
+sudo sosetup -f /usr/share/securityonion/sosetup.conf  -y
+sudo apt-get update
+sudo so-elastic-download
+sudo so-elastic-configure
+
