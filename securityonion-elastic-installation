@@ -19,13 +19,13 @@ sudo apt-get install -y firewalld
 sudo firewall-cmd --zone=public --add-port=443/tcp --permanent
 sudo firewall-cmd --reload
 sudo firewall-cmd --list-ports
+sudo sosetup -f /usr/share/securityonion/sosetup.conf  -y
 
 sleep 30
 #Install elastic
-sudo sosetup -f /usr/share/securityonion/sosetup.conf  -y
-sudo apt install securityonion-elastic
-sudo apt-get update
-sudo so-elastic-download
-sleep 20
-sudo so-elastic-configure
+#sudo apt install securityonion-elastic
+#sudo apt-get update
+#sudo so-elastic-download
+#sleep 20
+#sudo so-elastic-configure
 
